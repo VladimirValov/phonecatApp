@@ -1,0 +1,33 @@
+    <!doctype html>
+    <html ng-app="phonecatApp">
+      <head>
+	    <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		
+		<link rel="stylesheet" href="css/app.css">
+      </head>
+      <body ng-controller="PhoneListControler">
+	  
+	  <h1> {{hello}}</h1>
+	  
+	  Search: <input ng-model="query">
+	  Sort by: 
+	  <select ng-model="orderProp">
+	    <option value="name"> Alphabetical</option>
+	    <option value="age"> Newest </option>
+	  </select>
+	  
+	  <p>Sort by {{ orderProp }}</p>
+	  
+	  <ul>
+	    <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"> 
+	      {{ phone.name }}
+		  <p> {{ phone.snippet }} </p>
+	    </li>
+      </ul>
+	  
+	  <p>Total number of phones: {{ phones.length }}</p>	
+		
+      </body>
+    </html>
