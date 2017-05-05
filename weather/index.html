@@ -9,16 +9,19 @@
       </head>
       <body ng-controller="WeatherListControler">
 	  
-	  <h1> {{hello}}</h1>
-		  
-	  <table>
-	  <tr ng-repeat="day in forecasts" >
-	    <td ng-repeat="atr in day " > 
-		 {{ atr }} 
-		</td>
-		</tr>
+	  <h1> {{hello}}</h1>	  
+				
+		<p> {{ location }} </p>
 		
-	  </table> 
+		<p> Погода в {{ location.city + ", " + location.country }} </p>
+		
+		<table>
+	      <tr ng-repeat="day in forecast" >
+	        <td ng-repeat="atr in day " > 
+		      {{ atr }} 
+		    </td>
+		  </tr>
+		</table> 
 		
       </body>
     </html>
